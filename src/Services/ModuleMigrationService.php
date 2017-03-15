@@ -108,6 +108,7 @@ class ModuleMigrationService
 
         foreach ($migrations as $migration) {
             $migrator->up($migration);
+            $migrator->log($migration);
         }
 
         return true;
