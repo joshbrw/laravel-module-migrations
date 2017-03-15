@@ -97,7 +97,7 @@ class ModuleMigrationService
      * @return bool
      * @throws UnknownTableException
      */
-    protected function runModuleMigrations($moduleName, array $migrations = [])
+    public function runModuleMigrations($moduleName, array $migrations = [])
     {
         if (!$module = $this->moduleRepository->find($moduleName)) {
             throw new UnknownTableException("Module {$moduleName} does not exist.");
