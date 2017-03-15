@@ -1,0 +1,22 @@
+{
+    "name": "joshbrw/laravel-module-migrations",
+    "description": "Adds functionality for running migrations from other modules.",
+    "type": "library",
+    "require": {
+        "php": ">=5.6",
+        "nwidart/laravel-modules": "^1.18",
+        "illuminate/support": "^5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Josh Brown",
+            "email": "josh@joshbrown.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Joshbrw\\LaravelModuleMigrations\\": "src/"
+        }
+    }
+}
