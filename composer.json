@@ -4,8 +4,8 @@
     "type": "library",
     "require": {
         "php": ">=5.6",
-        "nwidart/laravel-modules": "^1.18",
-        "illuminate/support": "^5.4"
+        "nwidart/laravel-modules": "2.*",
+        "illuminate/support": "5.5.*"
     },
     "license": "MIT",
     "authors": [
@@ -17,6 +17,13 @@
     "autoload": {
         "psr-4": {
             "Joshbrw\\LaravelModuleMigrations\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Joshbrw\\LaravelModuleMigrations\\LaravelModuleMigrationsServiceProvider"
+            ]
         }
     }
 }
