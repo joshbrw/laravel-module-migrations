@@ -5,7 +5,7 @@
     "require": {
         "php": ">=5.6",
         "nwidart/laravel-modules": "2.*|3.*",
-        "illuminate/support": "5.5.*"
+        "illuminate/support": "5.5.*|5.6.*"
     },
     "license": "MIT",
     "authors": [
