@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\Facades\Schema;
 use Joshbrw\LaravelModuleMigrations\Exceptions\UnknownTableException;
 use Nwidart\Modules\Module;
-use Nwidart\Modules\Repository;
+use Nwidart\Modules\Contracts\RepositoryInterface;
 
 class ModuleMigrationService
 {
@@ -26,7 +26,7 @@ class ModuleMigrationService
      */
     private $consoleKernel;
     /**
-     * @var Repository
+     * @var RepositoryInterface
      */
     private $moduleRepository;
 
@@ -34,7 +34,7 @@ class ModuleMigrationService
         array $tableConfig = [],
         Builder $schemaBuilder,
         Kernel $consoleKernel,
-        Repository $moduleRepository
+        RepositoryInterface $moduleRepository
     ) {
         $this->tableConfig = $tableConfig;
         $this->schemaBuilder = $schemaBuilder;
