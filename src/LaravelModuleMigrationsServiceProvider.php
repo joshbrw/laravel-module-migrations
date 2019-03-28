@@ -2,7 +2,6 @@
 
 namespace Joshbrw\LaravelModuleMigrations;
 
-use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Joshbrw\LaravelModuleMigrations\Services\ModuleMigrationService;
@@ -46,7 +45,6 @@ class LaravelModuleMigrationsServiceProvider extends ServiceProvider
             return new ModuleMigrationService(
                 array_get($config, 'tables', []),
                 $app['db']->connection()->getSchemaBuilder(),
-                $app[Kernel::class],
                 $app['modules']
             );
         });

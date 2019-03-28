@@ -4,8 +4,9 @@
     "type": "library",
     "require": {
         "php": ">=7.2",
-        "nwidart/laravel-modules": "4.*|5.*",
-        "illuminate/support": "5.7.*|5.8.*"
+        "nwidart/laravel-modules": "5.*",
+        "illuminate/support": "5.8.*",
+        "illuminate/database": "5.8.*"
     },
     "license": "MIT",
     "authors": [

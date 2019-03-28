@@ -2,13 +2,10 @@
 
 namespace Joshbrw\LaravelModuleMigrations\Services;
 
-use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Database\Migrations\Migrator;
 use Illuminate\Database\Schema\Builder;
-use Illuminate\Support\Facades\Schema;
 use Joshbrw\LaravelModuleMigrations\Exceptions\UnknownTableException;
-use Nwidart\Modules\Module;
 use Nwidart\Modules\Contracts\RepositoryInterface;
+use Nwidart\Modules\Migrations\Migrator;
 
 class ModuleMigrationService
 {
@@ -22,23 +19,17 @@ class ModuleMigrationService
      */
     private $schemaBuilder;
     /**
-     * @var Kernel
-     */
-    private $consoleKernel;
-    /**
      * @var RepositoryInterface
      */
     private $moduleRepository;
 
     public function __construct(
-        array $tableConfig = [],
+        array $tableConfig,
         Builder $schemaBuilder,
-        Kernel $consoleKernel,
         RepositoryInterface $moduleRepository
     ) {
         $this->tableConfig = $tableConfig;
         $this->schemaBuilder = $schemaBuilder;
-        $this->consoleKernel = $consoleKernel;
         $this->moduleRepository = $moduleRepository;
     }
 
@@ -54,7 +45,7 @@ class ModuleMigrationService
             return true;
         }
 
-        if ($this->knowsHowToBuild($tableName) == false) {
+        if ($this->knowsHowToBuild($tableName) === false) {
             throw new UnknownTableException("We do not know how to build table '{$tableName}`.");
         }
 
@@ -103,7 +94,7 @@ class ModuleMigrationService
             throw new UnknownTableException("Module {$moduleName} does not exist.");
         }
 
-        $migrator = new \Nwidart\Modules\Migrations\Migrator($module);
+        $migrator = new Migrator($module);
         $migrator->requireFiles($migrations);
 
         foreach ($migrations as $migration) {
